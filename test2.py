@@ -12,6 +12,8 @@ token = 'dengnituodan1'
 
 robot = werobot.WeRoBot(token=token)
 
+
+
 #用户订阅时反馈该信息
 @robot.subscribe
 def subscribe(message):
@@ -30,8 +32,8 @@ def first(message, session):
         ans = message_people.check_message(message.content)
         #print (ans)
         return ans
-    elif '音乐' in message.content or '歌' in message.content:
-        music1 = music.music_data()
+    elif '音乐' in message.content or '歌' in message.content or '曲' in message.content or '睡觉' in message.content or '催眠' in message.content:
+        music1 = music.music_data(message.content)
         return music1
     elif '名字' in message.content or '叫啥' in message.content:
         ans = '我叫昵昵~~'
@@ -92,8 +94,8 @@ def yuyin(message,session):
     if input_shuxing in message_people.list_can:
         ans = message_people.check_message(res)
         return ans
-    elif '音乐' in res or '歌' in res:
-        music1 = music.music_data()
+    elif '音乐' in res or '歌' in res or '曲' in res or '睡觉' in res or '催眠' in res:
+        music1 = music.music_data(res)
         return music1
     elif '名字' in res or '叫啥' in res:
         ans = '我叫昵昵~~'
